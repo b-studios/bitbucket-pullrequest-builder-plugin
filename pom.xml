@@ -14,9 +14,9 @@
   <url>https://wiki.jenkins-ci.org/display/JENKINS/Bitbucket+pullrequest+builder+plugin</url>
 
   <scm>
-    <connection>scm:git:ssh://git@github.com/jenkinsci/bitbucket-pullrequest-builder-plugin.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/jenkinsci/bitbucket-pullrequest-builder-plugin.git</developerConnection>
-    <url>https://github.com/jenkinsci/bitbucket-pullrequest-builder-plugin.git</url>
+    <connection>scm:git:ssh://git@github.com/b-studios/bitbucket-pullrequest-builder-plugin.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/b-studios/bitbucket-pullrequest-builder-plugin.git</developerConnection>
+    <url>https://github.com/b-studios/bitbucket-pullrequest-builder-plugin.git</url>
     <tag>HEAD</tag>
   </scm>
   <developers>

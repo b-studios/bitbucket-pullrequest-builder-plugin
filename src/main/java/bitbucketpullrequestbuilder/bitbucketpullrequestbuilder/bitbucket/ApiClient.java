@@ -47,6 +47,7 @@ public class ApiClient {
               src.setCommit(getCommit(src.getCommit().getHash()));
               dst.setCommit(getCommit(dst.getCommit().getHash()));
             }
+            return prs;
 
         } catch(Exception e) {
             logger.log(Level.WARNING, "invalid pull request response.", e);

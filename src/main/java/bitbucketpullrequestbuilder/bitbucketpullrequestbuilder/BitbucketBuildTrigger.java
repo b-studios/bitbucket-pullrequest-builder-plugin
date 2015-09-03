@@ -4,7 +4,7 @@ import antlr.ANTLRException;
 import hudson.Extension;
 import hudson.model.*;
 import hudson.model.queue.QueueTaskFuture;
-import hudson.plugins.git.RevisionParameterAction;
+import hudson.plugins.mercurial.MercurialTagAction;
 import hudson.triggers.Trigger;
 import hudson.triggers.TriggerDescriptor;
 import net.sf.json.JSONObject;
@@ -130,7 +130,8 @@ public class BitbucketBuildTrigger extends Trigger<AbstractProject<?, ?>> {
         values.put("destinationRepositoryOwner", new StringParameterValue("destinationRepositoryOwner", cause.getDestinationRepositoryOwner()));
         values.put("destinationRepositoryName", new StringParameterValue("destinationRepositoryName", cause.getDestinationRepositoryName()));
         values.put("pullRequestTitle", new StringParameterValue("pullRequestTitle", cause.getPullRequestTitle()));
-        return this.job.scheduleBuild2(0, cause, new ParametersAction(new ArrayList(values.values())), new RevisionParameterAction(cause.getSourceCommitHash()));
+        return this.job.scheduleBuild2(0, cause, new ParametersAction(new ArrayList(values.values())),
+            new MercurialTagAction(cause.getSourceCommitHash(), "", "", cause.getSourceBranch()));
     }
 
     private Map<String, ParameterValue> getDefaultParameters() {

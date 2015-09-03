@@ -96,6 +96,19 @@ public class ApiClient {
         return null;
     }
 
+    /**
+     * Separately request commit to read full hash
+     */
+    public Pullrequest.Commit getCommit(String shorthash) {
+        String response = getRequest(V2_API_BASE_URL + this.owner + "/" + this.repositoryName + "/commit/" + shorthash);
+        try {
+            return new ObjectMapper().readValue(response, Pullrequest.Commit.class);
+        } catch(Exception e) {
+            logger.log(Level.WARNING, "invalid pull request response for commit.", e);
+        }
+        return null;
+    }
+
     private HttpClient getHttpClient() {
         HttpClient client = new HttpClient();
         if (Jenkins.getInstance() != null) {

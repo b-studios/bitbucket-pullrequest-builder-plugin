@@ -6,8 +6,8 @@
     <version>1.509.4</version><!-- which version of Jenkins is this plugin built against? -->
   </parent>
 
-  <artifactId>bitbucket-pullrequest-builder</artifactId>
-  <name>Bitbucket Pullrequest Builder Plugin</name>
+  <artifactId>bitbucket-pullrequest-builder-mercurial</artifactId>
+  <name>Bitbucket Pullrequest Builder Plugin (For Mercurial)</name>
   <version>1.4.8-SNAPSHOT</version>
   <description>This Jenkins plugin builds pull requests from Bitbucket.org and will report the test results.</description>
   <packaging>hpi</packaging>

@@ -191,10 +191,12 @@ public class Pullrequest {
             }
         }
 
+        @JsonProperty("comment_id")
         public Integer getId() {
             return id;
         }
 
+        @JsonProperty("comment_id")
         public void setId(Integer id) {
             this.id = id;
         }

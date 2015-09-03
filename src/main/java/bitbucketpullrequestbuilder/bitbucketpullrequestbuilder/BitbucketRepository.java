@@ -132,7 +132,7 @@ public class BitbucketRepository {
                 Collections.sort(comments);
                 Collections.reverse(comments);
                 for (Pullrequest.Comment comment : comments) {
-                    String content = comment.getContent().getRaw();
+                    String content = comment.getContent();
                     if (content == null || content.isEmpty()) {
                         continue;
                     }

@@ -117,7 +117,7 @@ public class ApiClient {
         if (Jenkins.getInstance() == null) return client;
 
         ProxyConfiguration proxy = Jenkins.getInstance().proxy;
-        if (proxy != null) return client;
+        if (proxy == null) return client;
 
         logger.info("Jenkins proxy: " + proxy.name + ":" + proxy.port);
         client.getHostConfiguration().setProxy(proxy.name, proxy.port);

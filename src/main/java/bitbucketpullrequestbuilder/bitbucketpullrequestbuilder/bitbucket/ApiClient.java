@@ -38,7 +38,16 @@ public class ApiClient {
 
     public List<Pullrequest> getPullRequests() {
         try {
-            return parse(get(v2("/pullrequests/")), Pullrequest.Response.class).getPullrequests();
+            List<Pullrequest> prs =  parse(get(v2("/pullrequests/")), Pullrequest.Response.class).getPullrequests();
+
+            // enrich prs with better commit data (full hashes)
+            for (Pullrequest pr : prs) {
+              Pullrequest.Revision src = pr.getSource();
+              Pullrequest.Revision dst = pr.getDestination();
+              src.setCommit(getCommit(src.getCommit().getHash()));
+              dst.setCommit(getCommit(dst.getCommit().getHash()));
+            }
+
         } catch(Exception e) {
             logger.log(Level.WARNING, "invalid pull request response.", e);
         }

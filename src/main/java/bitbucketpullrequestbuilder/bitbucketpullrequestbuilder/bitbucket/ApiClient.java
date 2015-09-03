@@ -50,7 +50,7 @@ public class ApiClient {
             return prs;
 
         } catch(Exception e) {
-            logger.log(Level.WARNING, "invalid pull request response.", e);
+            logger.log(Level.WARNING, "invalid pull request response (getPullRequests).", e);
         }
         return Collections.EMPTY_LIST;
     }
@@ -59,7 +59,7 @@ public class ApiClient {
         try {
             return parse(get(v1("/pullrequests/" + pullRequestId + "/comments")), new TypeReference<List<Pullrequest.Comment>>() {});
         } catch(Exception e) {
-            logger.log(Level.WARNING, "invalid pull request response.", e);
+            logger.log(Level.WARNING, "invalid pull request response (getPullRequestComments).", e);
         }
         return Collections.EMPTY_LIST;
     }
@@ -107,7 +107,7 @@ public class ApiClient {
         try {
             return parse(get(v2("/commit/" + shorthash)), Pullrequest.Commit.class);
         } catch(Exception e) {
-            logger.log(Level.WARNING, "invalid pull request response for commit.", e);
+            logger.log(Level.WARNING, "invalid pull request response  (getCommit).", e);
         }
         return null;
     }
